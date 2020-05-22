@@ -55,6 +55,7 @@ class NewsCarousel extends Component {
               }}
               inactiveDotOpacity={0.3}
               inactiveDotScale={0.6}
+
             />
         );
     }
