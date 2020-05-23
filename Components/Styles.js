@@ -1,6 +1,9 @@
 import {StyleSheet} from "react-native"
 
 const styles = StyleSheet.create({
+
+    // For landing page
+
     container: {
       flex: 1,
       backgroundColor: '#fff',
@@ -63,7 +66,29 @@ const styles = StyleSheet.create({
       alignItems : "center" , 
       flex : 1 , 
       paddingTop : 20,
+    },
+
+    // For Category Page
+
+    fullview : {
+      flex : 1,
+      flexDirection :"row",
+      justifyContent : "center",
+      alignItems : "center",
+    },
+    row : {
+      flexDirection : "row",
+    },
+    cell : {
+      padding : 50,
+      flex : 1,
+      borderColor : "black",
+      borderWidth : 2,
+      flexDirection : 'row',
+      justifyContent : "center",
+      alignItems : "center"
     }
+
   });
   
 export default styles;
