@@ -1,6 +1,6 @@
 import Carousel,{ Pagination }  from 'react-native-snap-carousel';
 import React ,{Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View ,  TouchableOpacity } from 'react-native'
 
 class NewsCarousel extends Component {
 
@@ -23,16 +23,16 @@ class NewsCarousel extends Component {
                 title:"Item 4",
                 text: "Text 4",
             },
-            {
-                title:"Item 5",
-                text: "Text 5",
-            },
         ]
     }
  
+    handlepress = () =>{
+        console.log('This is pressed')
+    }
+
     _renderItem = ({item, index}) => {
         return (
-            <View style={{
+            <TouchableOpacity activeOpacity = {0.8} onPress = {this.handlepress} style={{
                 backgroundColor:'black',
                 borderRadius: 5,
                 height: 350,
@@ -41,7 +41,7 @@ class NewsCarousel extends Component {
                 }}>
               <Text style={{fontSize: 30}}>{item.title}</Text>
               <Text>{item.text}</Text>
-            </View>
+            </TouchableOpacity>
         );
     }
 
@@ -55,6 +55,7 @@ class NewsCarousel extends Component {
               }}
               inactiveDotOpacity={0.3}
               inactiveDotScale={0.6}
+              o
 
             />
         );
