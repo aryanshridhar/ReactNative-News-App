@@ -51,6 +51,7 @@ class NewsCarousel extends Component {
               dotsLength={this.state.carouselItems.length}
               activeDotIndex={this.state.activeIndex}
               dotStyle={{
+                  backgroundColor : "#fff",
                   marginHorizontal: 8,
               }}
               inactiveDotOpacity={0.3}

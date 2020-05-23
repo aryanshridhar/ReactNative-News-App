@@ -12,20 +12,22 @@ const styles = StyleSheet.create({
     },
     topview : {
         flex : 1 ,
-        backgroundColor : "#fff" , 
+        backgroundColor : "#38264E" , 
         flexDirection : "column" , 
         width : '100%'
     },
     headtext : {
         paddingLeft : 20 , 
-        paddingTop : 50
+        paddingTop : 50,
     },
     datetext : {
-      opacity : 0.5
+      opacity : 0.6,
+      color : "#fff",
     },
     newstext : {
       fontSize : 30 , 
-      fontWeight : "bold"
+      fontWeight : "bold",
+      color : "#fff",
     },
     topcarousel : {
       justifyContent : "center" , 
@@ -55,11 +57,12 @@ const styles = StyleSheet.create({
     },
     recentnews :{
       paddingLeft : 20 , 
-      paddingTop : 10
+      paddingTop : 10,
     },
     news : {
       fontSize : 23 , 
-      fontWeight : "bold"
+      fontWeight : "bold",
+      color : "#38264E",
     },
     bottomcarousel : {
       justifyContent : "center" , 
@@ -71,22 +74,46 @@ const styles = StyleSheet.create({
     // For Category Page
 
     fullview : {
-      flex : 1,
-      flexDirection :"row",
-      justifyContent : "center",
-      alignItems : "center",
+      flex : 1 ,
+      backgroundColor : "#fff" , 
+      flexDirection : "column" , 
+      width : '100%'
     },
     row : {
       flexDirection : "row",
+      paddingRight : 20,
+      paddingLeft : 20,
     },
-    cell : {
-      padding : 50,
+    cell1 : {
+      padding : 40,
+      shadowColor: "#000",
+      borderRightWidth : 3,
+      borderBottomWidth : 2,
+      borderColor : "#38264E",
       flex : 1,
-      borderColor : "black",
-      borderWidth : 2,
-      flexDirection : 'row',
+      flexDirection : 'column',
       justifyContent : "center",
-      alignItems : "center"
+      alignItems : "center",
+    },
+    cell2 : {
+      padding : 40,
+      shadowColor: "#000",
+      borderBottomWidth : 2,
+      borderColor : "#38264E",
+      flex : 1,
+      flexDirection : 'column',
+      justifyContent : "center",
+      alignItems : "center",
+    },
+    categorytext : {
+      fontSize : 30 , 
+      fontWeight : "bold",
+      color : "#38264E",
+    },
+    celltext : {
+      color : "#38264E" , 
+      fontSize : 18 , 
+      fontWeight : "700"
     }
 
   });
