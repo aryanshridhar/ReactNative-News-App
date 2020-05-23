@@ -70,6 +70,12 @@ const styles = StyleSheet.create({
       flex : 1 , 
       paddingTop : 20,
     },
+    center : {
+      flex : 1,
+      flexDirection :'row',
+      justifyContent : "center",
+      alignItems : "center",
+  },
 
     // For Category Page
 
@@ -114,7 +120,7 @@ const styles = StyleSheet.create({
       color : "#38264E" , 
       fontSize : 18 , 
       fontWeight : "700"
-    }
+    },
 
   });
   
