@@ -1,36 +1,22 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-
 import Carousel from 'react-native-snap-carousel';
-
 import { sliderWidth, sliderItemWidth } from './CarouselStyle';
 import Card from './Card';
+import styles from './Styles'
 
 export default class RecentNews extends Component {
   state = {
-    data: [
-      {
-        title: '1'
-      },
-      {
-        title: '2'
-      },
-      {
-        title: '3'
-      },
-      {
-        title: '4'
-      },
-    ],
+    data: this.props.links
   };
 
   renderListComponent = ({ item }) => (
-    <Card title={item.title} />
+    <Card image = {item.link} title={item.title} />
   );
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.carouselcontainer}>
         <Carousel
           data={this.state.data}
           renderItem={this.renderListComponent}
@@ -44,11 +30,3 @@ export default class RecentNews extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop : 8,
-    backgroundColor: '#fff',
-  },
-});

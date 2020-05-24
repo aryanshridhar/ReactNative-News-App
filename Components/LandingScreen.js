@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView , ActivityIndicator} from 'react-native';
+import { Text, View, ScrollView , ActivityIndicator, TouchableOpacity} from 'react-native';
 import NewsCarousel from './NewsCarousel'
 import RecentNews from './RecentNews'
 import styles from './Styles'
 import publicIP from 'react-native-public-ip';
+import Article from './Article';
 
 class LandingScreen extends Component{
 
@@ -36,6 +37,7 @@ class LandingScreen extends Component{
         },
         country : null,
         news : null,
+        visible : false
     }
     componentDidMount()
     {
@@ -68,19 +70,67 @@ class LandingScreen extends Component{
         });
     }
 
-    handlelinks = () => {
+    showvisibility = () =>
+    {
+        this.setState({visible : true});
+    }
+
+    hidevisibility = () =>
+    {
+        this.setState({visible : false});
+    }
+
+    handlelength = (text) => 
+    {
+        if (text.length > 75)
+        {
+            text = text.substring(0,75) + " ....." +  "Tap to View More"
+        }
+        return text;
+    }
+
+    handletoplinks = () => {
+        let articles = this.state.news.articles
         let links = [
                     {
-                        link : this.state.news.articles[0]["urlToImage"]
+                        link : articles[0]["urlToImage"],
+                        title : this.handlelength(articles[0]['title'])
                     },
                     {
-                        link : this.state.news.articles[1]["urlToImage"]
+                        link : articles[1]["urlToImage"],
+                        title  : this.handlelength(articles[1]['title'])
                     },
                     {
-                        link : this.state.news.articles[2]["urlToImage"]
+                        link : articles[2]["urlToImage"],
+                        title : this.handlelength(articles[2]['title'])
                     },
                     {
-                        link : this.state.news.articles[3]["urlToImage"]
+                        link : articles[3]["urlToImage"],
+                        title : this.handlelength(articles[3]['title'])
+                    },
+                ]
+        return links;
+    }
+
+
+    handlebottomlinks = () => {
+        let articles = this.state.news.articles
+        let links = [
+                    {
+                        link : articles[4]["urlToImage"],
+                        title : articles[4]['title']
+                    },
+                    {
+                        link : articles[5]["urlToImage"],
+                        title : articles[5]['title']
+                    },
+                    {
+                        link : articles[6]["urlToImage"],
+                        title : articles[6]['title']
+                    },
+                    {
+                        link : articles[7]["urlToImage"],
+                        title : articles[7]['title']
                     },
                 ]
         return links;
@@ -95,7 +145,8 @@ class LandingScreen extends Component{
             )
         }
         return (
-
+            <React.Fragment>
+            <Article visible = {this.state.visible} hidevisibility = {this.hidevisibility}/>
             <View style={styles.container}>
                 <View style = {styles.topview}>
                     <View style = {styles.headtext}>
@@ -110,22 +161,28 @@ class LandingScreen extends Component{
                         </View>
                     </View>
                     <View style = {styles.topcarousel}>
-                        <NewsCarousel links = {this.handlelinks()}/>
+                        <NewsCarousel showvisibility = {this.showvisibility} links = {this.handletoplinks()} />
                     </View>
                 </View>
                 <View style = {styles.bottomview}>
                     <View style = {styles.bottomnews}>
                         <View style = {styles.recentnews}>
-                            <Text style = {styles.news}>Recent News</Text>
+                            <View style = {styles.bottomtext}>
+                                <Text style = {styles.news}>Recent News</Text>
+                            </View>
+                            <TouchableOpacity activeOpacity = {0.6} style = {styles.allview}>
+                                <Text style = {styles.moreview}>See All</Text>
+                            </TouchableOpacity>
                         </View>
                         <View style = {styles.bottomcarousel}>
                             <ScrollView>
-                                <RecentNews/>
+                                <RecentNews links = {this.handlebottomlinks()}/>
                             </ScrollView>
                         </View>
                     </View>
                 </View>
             </View>
+            </React.Fragment>
         );
     }
 }

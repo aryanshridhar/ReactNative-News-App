@@ -1,4 +1,6 @@
 import {StyleSheet} from "react-native"
+import { sliderItemWidth, sliderItemHorizontalMargin } from './CarouselStyle';
+
 
 const styles = StyleSheet.create({
 
@@ -11,7 +13,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     topview : {
-        flex : 1 ,
+        flex : 1.3,
         backgroundColor : "#38264E" , 
         flexDirection : "column" , 
         width : '100%'
@@ -58,25 +60,41 @@ const styles = StyleSheet.create({
     recentnews :{
       paddingLeft : 20 , 
       paddingTop : 10,
+      flexDirection : "row"
     },
     news : {
       fontSize : 23 , 
       fontWeight : "bold",
       color : "#38264E",
     },
+    moreview :{
+      fontSize : 15,
+      opacity :0.8,
+      color : "#38264E",
+      fontWeight : "700"
+    },
     bottomcarousel : {
       justifyContent : "center" , 
       alignItems : "center" , 
       flex : 1 , 
-      paddingTop : 20,
+      paddingTop : 10,
     },
     center : {
       flex : 1,
       flexDirection :'row',
       justifyContent : "center",
       alignItems : "center",
-  },
-
+    },
+    bottomtext : {
+      flex : 1
+    },
+    allview : {
+      flex : 1 , 
+      flexDirection : "row" , 
+      justifyContent : "flex-end" , 
+      alignItems : "center" , 
+      paddingRight : 25
+    },
     // For Category Page
 
     fullview : {
@@ -120,6 +138,63 @@ const styles = StyleSheet.create({
       color : "#38264E" , 
       fontSize : 18 , 
       fontWeight : "700"
+    },
+
+    //RecentNews
+
+    carouselcontainer : {
+      flex: 1,
+      paddingTop : 8,
+      backgroundColor: '#fff',
+    },
+
+    //Card
+
+    card : {
+      width: sliderItemWidth,
+      height: 100,
+      marginLeft : 20,
+      marginHorizontal: sliderItemHorizontalMargin,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor : "black",
+    },
+    cardimage : {
+      height : 100 , 
+      width : sliderItemWidth
+    },
+    touchstyle : {
+      paddingBottom : 20,
+    },
+    cardtext : {
+      marginLeft : 20 , 
+      color : "#38264E" , 
+      fontSize : 14 , 
+      paddingTop : 10
+    },
+
+    //NewsCarousel 
+
+    carouseltext : {
+      borderRadius: 5,
+      height: 200,
+      marginLeft: 25,
+      marginRight: 25, 
+    },
+    carouselimage : {
+      zIndex : 100 , 
+      height : 200 , 
+      resizeMode : "cover"
+    },
+    carouselview : {
+      paddingTop : 10
+    },
+    carouseltitle : {
+      color : "#fff" , 
+      marginLeft : 25 , 
+      marginRight : 25 , 
+      fontSize : 16 , 
+      flexWrap : "nowrap"
     },
 
   });

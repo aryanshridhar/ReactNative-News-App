@@ -1,23 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native'; 
-import { sliderItemWidth, sliderItemHorizontalMargin } from './CarouselStyle';
+import { View, Text , Image , TouchableOpacity} from 'react-native'; 
+import styles from './Styles';
 
-const Card = ({ title }) => (
-<View>
+const Card = ({ image, title }) => (
+<TouchableOpacity activeOpacity = {0.7} style = {styles.touchstyle}>
   <View
-    style={{
-      width: sliderItemWidth,
-      height: 100,
-      marginLeft : 20,
-      marginHorizontal: sliderItemHorizontalMargin,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: 'black',
-    }}
+    style={styles.card}
   >
+    <Image style = {styles.cardimage} source = {{uri : image}}/>
   </View>
-  <Text style = {{marginLeft : 20}}></Text>
-  </View>
+  <Text style = {styles.cardtext}>{title}</Text>
+  </TouchableOpacity>
 );
 
 export default Card;
