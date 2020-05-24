@@ -11,18 +11,19 @@ class NewsCarousel extends Component {
     }
  
     handlepress = () =>{
-        this.props.showvisibility();
+        this.props.passdata(this.state.activeIndex);
+        this.props.showvisibility()
     }
 
     _renderItem = ({item, index}) => {
         return (
             <View>
-            <TouchableOpacity activeOpacity = {0.8} onPress = {this.handlepress} style={styles.carouseltext}>
-            <Image style ={styles.carouselimage} source = {{uri : item.link}}/>
-            </TouchableOpacity>
-            <View style = {styles.carouselview}>
-                <Text style = {styles.carouseltitle}>{item.title}</Text>
-            </View>
+                <TouchableOpacity activeOpacity = {0.8} onPress = {this.handlepress} style={styles.carouseltext}>
+                <Image style ={styles.carouselimage} source = {{uri : item.link}}/>
+                </TouchableOpacity>
+                <View style = {styles.carouselview}>
+                    <Text style = {styles.carouseltitle}>{item.title}</Text>
+                </View>
             </View>
         );
     }

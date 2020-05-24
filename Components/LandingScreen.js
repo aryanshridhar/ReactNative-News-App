@@ -37,7 +37,8 @@ class LandingScreen extends Component{
         },
         country : null,
         news : null,
-        visible : false
+        visible : false,
+        data : {}
     }
     componentDidMount()
     {
@@ -55,7 +56,6 @@ class LandingScreen extends Component{
                 })
                 .then((data) => {
                     this.setState({news : data});
-                    console.log(this.state.news)
                 })
                 .catch((error) => {
                     console.log(error);
@@ -136,6 +136,11 @@ class LandingScreen extends Component{
         return links;
     }
 
+    passdata = (index) => {
+        let data = this.state.news.articles[index]
+        this.setState({data : data});
+    }
+
     render(){
         if(!this.state.news){
             return (
@@ -146,7 +151,7 @@ class LandingScreen extends Component{
         }
         return (
             <React.Fragment>
-            <Article visible = {this.state.visible} hidevisibility = {this.hidevisibility}/>
+            <Article data = {this.state.data} visible = {this.state.visible} hidevisibility = {this.hidevisibility}/>
             <View style={styles.container}>
                 <View style = {styles.topview}>
                     <View style = {styles.headtext}>
@@ -161,10 +166,11 @@ class LandingScreen extends Component{
                         </View>
                     </View>
                     <View style = {styles.topcarousel}>
-                        <NewsCarousel showvisibility = {this.showvisibility} links = {this.handletoplinks()} />
+                        <NewsCarousel passdata = {this.passdata} showvisibility = {this.showvisibility} links = {this.handletoplinks()} />
                     </View>
                 </View>
                 <View style = {styles.bottomview}>
+                <ScrollView>
                     <View style = {styles.bottomnews}>
                         <View style = {styles.recentnews}>
                             <View style = {styles.bottomtext}>
@@ -175,11 +181,10 @@ class LandingScreen extends Component{
                             </TouchableOpacity>
                         </View>
                         <View style = {styles.bottomcarousel}>
-                            <ScrollView>
                                 <RecentNews links = {this.handlebottomlinks()}/>
-                            </ScrollView>
                         </View>
                     </View>
+                </ScrollView>
                 </View>
             </View>
             </React.Fragment>

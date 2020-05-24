@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
-import { View , Modal } from 'react-native';
+import { View , Modal , Text, ScrollView , Image } from 'react-native';
 import Header from './Header'
 
 
 class Article extends Component {
     render() {
+
         return (
-            <View>
+            <React.Fragment>
                 <Modal visible = {this.props.visible} animationType = {'slide'}>
                     <Header hidevisibility = {this.props.hidevisibility}/>
+                <ScrollView>
+                    <Text></Text>
+                    <Image style = {{width : 400 , height : 400}} source = {{uri : this.props.data['urlToImage']}} />
+                </ScrollView>
                 </Modal>
-            </View>
+            </React.Fragment>
         )
     }
 }
