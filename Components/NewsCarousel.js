@@ -1,64 +1,31 @@
 import Carousel,{ Pagination }  from 'react-native-snap-carousel';
 import React ,{Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View ,  TouchableOpacity, Image } from 'react-native'
+import styles from './Styles';
 
 class NewsCarousel extends Component {
 
     state ={
         activeIndex:0,
-        carouselItems: [
-            {
-                title:"Item 1",
-                text: "Text 1",
-            },
-            {
-                title:"Item 2",
-                text: "Text 2",
-            },
-            {
-                title:"Item 3",
-                text: "Text 3",
-            },
-            {
-                title:"Item 4",
-                text: "Text 4",
-            },
-            {
-                title:"Item 5",
-                text: "Text 5",
-            },
-        ]
+        carouselItems: this.props.links,
     }
  
+    handlepress = () =>{
+        this.props.showvisibility();
+    }
+
     _renderItem = ({item, index}) => {
         return (
-            <View style={{
-                backgroundColor:'black',
-                borderRadius: 5,
-                height: 350,
-                marginLeft: 25,
-                marginRight: 25, 
-                }}>
-              <Text style={{fontSize: 30}}>{item.title}</Text>
-              <Text>{item.text}</Text>
+            <View>
+            <TouchableOpacity activeOpacity = {0.8} onPress = {this.handlepress} style={styles.carouseltext}>
+            <Image style ={styles.carouselimage} source = {{uri : item.link}}/>
+            </TouchableOpacity>
+            <View style = {styles.carouselview}>
+                <Text style = {styles.carouseltitle}>{item.title}</Text>
+            </View>
             </View>
         );
     }
-
-    get pagination () {
-        return (
-            <Pagination
-              dotsLength={this.state.carouselItems.length}
-              activeDotIndex={this.state.activeIndex}
-              dotStyle={{
-                  marginHorizontal: 8,
-              }}
-              inactiveDotOpacity={0.3}
-              inactiveDotScale={0.6}
-            />
-        );
-    }
-
  
     render () {
         return (
@@ -71,8 +38,6 @@ class NewsCarousel extends Component {
                 itemWidth={400}
                 onSnapToItem={(index) => this.setState({ activeIndex: index }) }
                 />
-
-                { this.pagination }
             </View>
         );
     }
