@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     topview : {
-      flex : 1.150,
+      flex : 1.2,
       backgroundColor : "#38264E" , 
       flexDirection : "column" , 
       width : '100%'
