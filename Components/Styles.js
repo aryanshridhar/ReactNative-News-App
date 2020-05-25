@@ -1,6 +1,7 @@
-import {StyleSheet} from "react-native"
+import {StyleSheet , Dimensions} from "react-native"
 import { sliderItemWidth, sliderItemHorizontalMargin } from './CarouselStyle';
 
+const fullheight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
 
@@ -13,14 +14,14 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     topview : {
-        flex : 1.2,
-        backgroundColor : "#38264E" , 
-        flexDirection : "column" , 
-        width : '100%'
+      flex : 1.1,
+      backgroundColor : "#38264E" , 
+      flexDirection : "column" , 
+      width : '100%'
     },
     headtext : {
         paddingLeft : 20 , 
-        paddingTop : 50,
+        paddingTop : fullheight/14.724,
     },
     datetext : {
       opacity : 0.6,
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
       paddingLeft : 20,
     },
     cell1 : {
-      padding : 40,
+      padding : fullheight/18.4068,
       shadowColor: "#000",
       borderRightWidth : 3,
       borderBottomWidth : 2,
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
       alignItems : "center",
     },
     cell2 : {
-      padding : 40,
+      padding :fullheight/18.4068,
       shadowColor: "#000",
       borderBottomWidth : 2,
       borderColor : "#38264E",
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
 
     card : {
       width: sliderItemWidth,
-      height: 100,
+      height: fullheight/7.36,
       marginLeft : 20,
       marginHorizontal: sliderItemHorizontalMargin,
       alignItems: 'center',
@@ -160,7 +161,7 @@ const styles = StyleSheet.create({
       backgroundColor : "black",
     },
     cardimage : {
-      height : 100 , 
+      height : fullheight/7.36 , 
       width : sliderItemWidth
     },
     touchstyle : {
@@ -177,13 +178,13 @@ const styles = StyleSheet.create({
 
     carouseltext : {
       borderRadius: 5,
-      height: 200,
+      height: fullheight/3.683,
       marginLeft: 25,
       marginRight: 25, 
     },
     carouselimage : {
       zIndex : 100 , 
-      height : 200 , 
+      height : fullheight/3.683,
       resizeMode : "cover"
     },
     carouselview : {

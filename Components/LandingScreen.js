@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView , ActivityIndicator, TouchableOpacity} from 'react-native';
+import { 
+    Text, 
+    View, 
+    ScrollView , 
+    ActivityIndicator, 
+    TouchableOpacity,
+    Linking
+} from 'react-native';
 import NewsCarousel from './NewsCarousel'
 import RecentNews from './RecentNews'
 import styles from './Styles'
@@ -38,7 +45,6 @@ class LandingScreen extends Component{
         country : null,
         news : null,
         visible : false,
-        data : {}
     }
     componentDidMount()
     {
@@ -68,6 +74,11 @@ class LandingScreen extends Component{
         .catch(error => {
             console.log(error);
         });
+    }
+
+    openurl = (index) => {
+        let url = this.state.news.articles[index]['url']
+        Linking.openURL(url);
     }
 
     showvisibility = () =>
@@ -118,19 +129,23 @@ class LandingScreen extends Component{
         let links = [
                     {
                         link : articles[4]["urlToImage"],
-                        title : articles[4]['title']
+                        title : articles[4]['title'],
+                        url : articles[4]['url']
                     },
                     {
                         link : articles[5]["urlToImage"],
-                        title : articles[5]['title']
+                        title : articles[5]['title'],
+                        url : articles[5]['url']
                     },
                     {
                         link : articles[6]["urlToImage"],
-                        title : articles[6]['title']
+                        title : articles[6]['title'],
+                        url : articles[6]['url']
                     },
                     {
                         link : articles[7]["urlToImage"],
-                        title : articles[7]['title']
+                        title : articles[7]['title'],
+                        url : articles[7]['url']
                     },
                 ]
         return links;
@@ -151,7 +166,7 @@ class LandingScreen extends Component{
         }
         return (
             <React.Fragment>
-            <Article data = {this.state.data} visible = {this.state.visible} hidevisibility = {this.hidevisibility}/>
+            {/* <Article data = {this.state.news} visible = {this.state.visible} hidevisibility = {this.hidevisibility}/> */}
             <View style={styles.container}>
                 <View style = {styles.topview}>
                     <View style = {styles.headtext}>
@@ -166,7 +181,7 @@ class LandingScreen extends Component{
                         </View>
                     </View>
                     <View style = {styles.topcarousel}>
-                        <NewsCarousel passdata = {this.passdata} showvisibility = {this.showvisibility} links = {this.handletoplinks()} />
+                        <NewsCarousel openurl = {this.openurl} links = {this.handletoplinks()} />
                     </View>
                 </View>
                 <View style = {styles.bottomview}>
@@ -176,12 +191,12 @@ class LandingScreen extends Component{
                             <View style = {styles.bottomtext}>
                                 <Text style = {styles.news}>Recent News</Text>
                             </View>
-                            <TouchableOpacity activeOpacity = {0.6} style = {styles.allview}>
+                            <TouchableOpacity onPress = {this.showvisibility} activeOpacity = {0.6} style = {styles.allview}>
                                 <Text style = {styles.moreview}>See All</Text>
                             </TouchableOpacity>
                         </View>
                         <View style = {styles.bottomcarousel}>
-                                <RecentNews links = {this.handlebottomlinks()}/>
+                                <RecentNews openurl = {this.openurl} links = {this.handlebottomlinks()}/>
                         </View>
                     </View>
                 </ScrollView>

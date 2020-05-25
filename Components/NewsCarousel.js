@@ -1,7 +1,10 @@
-import Carousel,{ Pagination }  from 'react-native-snap-carousel';
+import Carousel from 'react-native-snap-carousel';
 import React ,{Component} from 'react';
-import { Text, View ,  TouchableOpacity, Image } from 'react-native'
+import { Text, View ,  TouchableOpacity, Image ,Dimensions} from 'react-native'
 import styles from './Styles';
+
+const fullwidth = Dimensions.get('window').width;
+console.log(fullwidth)
 
 class NewsCarousel extends Component {
 
@@ -11,8 +14,7 @@ class NewsCarousel extends Component {
     }
  
     handlepress = () =>{
-        this.props.passdata(this.state.activeIndex);
-        this.props.showvisibility()
+        this.props.openurl(this.state.activeIndex)
     }
 
     _renderItem = ({item, index}) => {
@@ -35,8 +37,8 @@ class NewsCarousel extends Component {
                 layout = {"default"}
                 data={this.state.carouselItems}
                 renderItem={this._renderItem}
-                sliderWidth = {500}
-                itemWidth={400}
+                sliderWidth = {fullwidth}
+                itemWidth={fullwidth}
                 onSnapToItem={(index) => this.setState({ activeIndex: index }) }
                 />
             </View>

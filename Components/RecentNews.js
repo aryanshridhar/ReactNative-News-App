@@ -11,7 +11,7 @@ export default class RecentNews extends Component {
   };
 
   renderListComponent = ({ item }) => (
-    <Card image = {item.link} title={item.title} />
+    <Card image = {item.link} title={item.title} url = {item.url} />
   );
 
   render() {
