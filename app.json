@@ -22,7 +22,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "News-App"
+    },
+    "android": {
+      "package": "News-App"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }
