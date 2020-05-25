@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {View ,Linking , Modal ,Text} from "react-native"
 import Header from './Header'
 import RecentCarousel from './RecentCarousel'
+import styles from './Styles'
 
 class Article extends Component {
 
@@ -30,11 +31,11 @@ class Article extends Component {
         return (
             <Modal visible = {this.props.visible} animationType = "slide">
                 <Header hidevisibility = {this.props.hidevisibility}/>
-                <View style = {{flex : 1 , flexDirection : "column"}}>
-                    <View style = {{flex : 0.1 , justifyContent : "flex-end" , paddingLeft : 25}}>
-                        <Text style = {{fontSize : 24 , fontWeight : "bold",color : "#38264E"}}>Recent News</Text>
+                <View style = {styles.articleview}>
+                    <View style = {styles.articlebottom}>
+                        <Text style = {styles.articleheading}>{this.props.heading}</Text>
                     </View>
-                    <View style = {{flex : 1 ,flexDirection : "column" , justifyContent : "center",alignItems : "center",paddingTop : 35}}>
+                    <View style = {styles.articlecarousel}>
                         <RecentCarousel openurl = {this.openurl} links = {this.handlelinks()}/>
                     </View>
                 </View>

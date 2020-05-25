@@ -29,7 +29,6 @@ class Navigator extends Component {
           })
           .then((data) => {
               this.setState({country : data.countryCode});
-              console.log(this.state.country);
           })
           .catch((error) => {
               console.log(error);
@@ -41,7 +40,6 @@ class Navigator extends Component {
   }
 
   LandingRoute = () => {
-    console.log(this.state.country);
     return(
       <LandingScreen country = {this.state.country}/>
     )

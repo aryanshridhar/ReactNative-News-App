@@ -226,6 +226,31 @@ const styles = StyleSheet.create({
       flexWrap : "nowrap"
     },
 
+    // Article
+
+    articleview : {
+      flex : 1 , 
+      flexDirection : "column"
+    },
+    articlebottom : {
+      flex : 0.1, 
+      justifyContent : "flex-end", 
+      paddingLeft : 25
+    },
+    articleheading : {
+      fontSize : 24 , 
+      fontWeight : "bold",
+      color : "#38264E" , 
+      textTransform : "capitalize"
+    },
+    articlecarousel : {
+      flex : 1 ,
+      flexDirection : "column" , 
+      justifyContent : "center",
+      alignItems : "center",
+      paddingTop : 35
+    }
+
   });
   
 export default styles;

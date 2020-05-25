@@ -148,7 +148,7 @@ class LandingScreen extends Component{
         }
         return (
             <React.Fragment>
-            <Article data = {this.state.news} visible = {this.state.visible} hidevisibility = {this.hidevisibility}/>
+            <Article data = {this.state.news} visible = {this.state.visible} heading = {'Recent News'} hidevisibility = {this.hidevisibility}/>
             <View style={styles.container}>
                 <View style = {styles.topview}>
                     <View style = {styles.headtext}>

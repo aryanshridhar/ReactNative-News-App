@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import {View ,Linking , Modal ,Text , ActivityIndicator} from "react-native"
-import Header from './Header'
-import RecentCarousel from './RecentCarousel'
 import styles from './Styles'
+import Article from './Article'
 
 class CategoryItem extends Component {
 
@@ -37,14 +36,7 @@ class CategoryItem extends Component {
                 )
             }
             
-        console.log(links);
         return links;
-    }
-
-
-    openurl = (index) => {
-        let url = this.props.data.articles[index+8]['url']
-        Linking.openURL(url);
     }
 
     render() {
@@ -58,17 +50,11 @@ class CategoryItem extends Component {
             )
         }
         return (
-            <Modal visible = {this.props.visible} animationType = "slide">
-                <Header hidevisibility = {this.props.hidevisibility}/>
-                <View style = {{flex : 1 , flexDirection : "column"}}>
-                    <View style = {{flex : 0.1 , justifyContent : "flex-end" , paddingLeft : 25}}>
-                        <Text style = {{fontSize : 24 , fontWeight : "bold",color : "#38264E"}}>Recent News</Text>
-                    </View>
-                    <View style = {{flex : 1 ,flexDirection : "column" , justifyContent : "center",alignItems : "center",paddingTop : 35}}>
-                        <RecentCarousel openurl = {this.openurl} links = {this.handlelinks()}/>
-                    </View>
-                </View>
-            </Modal>
+            <Article 
+            data = {this.state.news} 
+            visible = {this.state.visible} 
+            heading = {this.props.category} 
+            hidevisibility = {this.props.hidevisibility}/>
         )
     }
 }

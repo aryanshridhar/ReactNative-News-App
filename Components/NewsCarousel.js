@@ -4,7 +4,6 @@ import { Text, View ,  TouchableOpacity, Image ,Dimensions} from 'react-native'
 import styles from './Styles';
 
 const fullwidth = Dimensions.get('window').width;
-console.log(fullwidth)
 
 class NewsCarousel extends Component {
 
