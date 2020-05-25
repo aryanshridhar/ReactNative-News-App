@@ -2,6 +2,7 @@ import {StyleSheet , Dimensions} from "react-native"
 import { sliderItemWidth, sliderItemHorizontalMargin } from './CarouselStyle';
 
 const fullheight = Dimensions.get('window').height;
+const fullwidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
 
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     topview : {
-      flex : 1.1,
+      flex : 1.150,
       backgroundColor : "#38264E" , 
       flexDirection : "column" , 
       width : '100%'
@@ -192,6 +193,33 @@ const styles = StyleSheet.create({
     },
     carouseltitle : {
       color : "#fff" , 
+      marginLeft : 25 , 
+      marginRight : 25 , 
+      fontSize : 16 , 
+      flexWrap : "nowrap"
+    },
+
+    // RecentCarousel
+
+    allcarouseltext : {
+      borderRadius: 5,
+      height: fullheight/2.5,
+      width : fullwidth/1.2,
+      marginLeft: 25,
+      marginRight: 25, 
+    },
+    allcarouselimage : {
+      zIndex : 100 , 
+      height : fullheight/2.5,
+      width : fullwidth/1.2,
+      resizeMode : "cover"
+    },
+    allcarouselview : {
+      paddingTop : 20,
+      paddingLeft : 5,
+    },
+    allcarouseltitle : {
+      color : "#38264E",
       marginLeft : 25 , 
       marginRight : 25 , 
       fontSize : 16 , 

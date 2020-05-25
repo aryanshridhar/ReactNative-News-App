@@ -1,25 +1,16 @@
 import React , {Component} from "react";
-import { BottomNavigation, Text } from 'react-native-paper';
-import { StyleSheet } from "react-native";
+import { BottomNavigation } from 'react-native-paper';
+import { StyleSheet , View , ActivityIndicator} from "react-native";
 import LandingScreen from "./LandingScreen";
 import Categories from "./Categories";
+import publicIP from 'react-native-public-ip';
+import styles from './Styles'
 
 
-const LandingRoute = () => {
-  return(
-    <LandingScreen/>
-  )
-}
-
-
-const CategoriesRoute = () => {
-  return(
-    <Categories/>
-  )
-}
 
 class Navigator extends Component {
   state = {
+    country : null,
     index: 0,
     routes: [
       { key: 'home', title: 'Home', icon: 'album' , color : "#1B2433"},
@@ -27,15 +18,59 @@ class Navigator extends Component {
     ],
   };
 
+
+  componentDidMount()
+  {
+      publicIP()
+      .then(ip => {
+          fetch(`http://ip-api.com/json/${ip}`)
+          .then((resp) => {
+              return resp.json();
+          })
+          .then((data) => {
+              this.setState({country : data.countryCode});
+              console.log(this.state.country);
+          })
+          .catch((error) => {
+              console.log(error);
+          })
+      })
+      .catch(error => {
+          console.log(error);
+      });
+  }
+
+  LandingRoute = () => {
+    console.log(this.state.country);
+    return(
+      <LandingScreen country = {this.state.country}/>
+    )
+  }
+  
+  
+  CategoriesRoute = () => {
+    return(
+      <Categories country = {this.state.country}/>
+    )
+  }
+
   _handleIndexChange = index => this.setState({ index });
 
   _renderScene = BottomNavigation.SceneMap({
-    home: LandingRoute,
-    category : CategoriesRoute
+    home: this.LandingRoute,
+    category : this.CategoriesRoute
   });
 
   render() {
+    if(!this.state.country){
+      return (
+          <View style = {styles.center}>
+              <ActivityIndicator animating = {true} size="large" color="#38264E" />
+          </View>
+      )
+    } 
     return (
+      
       <BottomNavigation
         activeColor = {'white'}
         style = {{backgroundColor : '#1B2433'}}

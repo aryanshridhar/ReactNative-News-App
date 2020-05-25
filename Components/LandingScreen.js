@@ -10,7 +10,6 @@ import {
 import NewsCarousel from './NewsCarousel'
 import RecentNews from './RecentNews'
 import styles from './Styles'
-import publicIP from 'react-native-public-ip';
 import Article from './Article';
 
 class LandingScreen extends Component{
@@ -42,38 +41,21 @@ class LandingScreen extends Component{
                 11 : 'DECEMBER',
             }
         },
-        country : null,
         news : null,
         visible : false,
     }
     componentDidMount()
     {
-        publicIP()
-        .then(ip => {
-            fetch(`http://ip-api.com/json/${ip}`)
-            .then((resp) => {
-                return resp.json();
-            })
-            .then((data) => {
-                this.setState({country : data.countryCode});
-                fetch('http://newsapi.org/v2/top-headlines?country=in&apiKey=6291ef3afc11486cbf183a4052bff86a')
-                .then((resp) =>{
-                    return resp.json();
-                })
-                .then((data) => {
-                    this.setState({news : data});
-                })
-                .catch((error) => {
-                    console.log(error);
-                }) 
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+        fetch('http://newsapi.org/v2/top-headlines?country=in&apiKey=6291ef3afc11486cbf183a4052bff86a')
+        .then((resp) =>{
+            return resp.json();
         })
-        .catch(error => {
+        .then((data) => {
+            this.setState({news : data});
+        })
+        .catch((error) => {
             console.log(error);
-        });
+        }) 
     }
 
     openurl = (index) => {
@@ -95,7 +77,7 @@ class LandingScreen extends Component{
     {
         if (text.length > 75)
         {
-            text = text.substring(0,75) + " ....." +  "Tap to View More"
+            text = text.substring(0,75) + " ..." +  "Tap for More"
         }
         return text;
     }
@@ -166,7 +148,7 @@ class LandingScreen extends Component{
         }
         return (
             <React.Fragment>
-            {/* <Article data = {this.state.news} visible = {this.state.visible} hidevisibility = {this.hidevisibility}/> */}
+            <Article data = {this.state.news} visible = {this.state.visible} hidevisibility = {this.hidevisibility}/>
             <View style={styles.container}>
                 <View style = {styles.topview}>
                     <View style = {styles.headtext}>
@@ -176,7 +158,7 @@ class LandingScreen extends Component{
                             <Text style = {styles.newstext}>Top News</Text>
                             </View>
                             <View style = {{paddingRight : 30 , alignItems : "center" , justifyContent : "center"}}>
-                                <Text style = {styles.datetext}>Country : {this.state.country}</Text>
+                                <Text style = {styles.datetext}>Country : {this.props.country}</Text>
                             </View>
                         </View>
                     </View>
@@ -196,7 +178,7 @@ class LandingScreen extends Component{
                             </TouchableOpacity>
                         </View>
                         <View style = {styles.bottomcarousel}>
-                                <RecentNews openurl = {this.openurl} links = {this.handlebottomlinks()}/>
+                            <RecentNews openurl = {this.openurl} links = {this.handlebottomlinks()}/>
                         </View>
                     </View>
                 </ScrollView>
