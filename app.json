@@ -8,6 +8,14 @@
       "web"
     ],
     "version": "1.0.0",
+    "ios": {
+      "bundleIdentifier": "com.github.aryanshridhar",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.github.aryanshridhar",
+      "versionCode": 1
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "updates": {
@@ -15,9 +23,6 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    }
+    ]
   }
 }
