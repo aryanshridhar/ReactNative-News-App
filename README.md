@@ -34,14 +34,11 @@ Issues and pull requests are always appreciated .
 <br>
 
 ### Download link :
-<a href = 'https://expo.io/artifacts/1f6ef0ad-d676-47d8-9a9c-04f134cd8cb8'>Android</a>
-
-<br>
+<a href = 'https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40aryanshridhar/News-App-a9d5aba1e0374fd7885bec57e524ca4f-signed.apk'>Android</a>
 
 ### API Used : 
 <a href = 'https://newsapi.org/'>Api</a><br>
 Allowing Only 500 calls/day .
-<br>
 <br>
 
 ### Dependencies Used : 
@@ -50,7 +47,6 @@ Allowing Only 500 calls/day .
 <a href = 'https://github.com/teamairship/react-native-public-ip'>react-native-public-ip</a></li><br>
 <a href = 'https://github.com/archriss/react-native-snap-carousel'>react-native-snap-carousel</a></li><br>
 
-<br>
 
 ### LICENSE
 
