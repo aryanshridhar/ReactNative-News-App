@@ -2,7 +2,7 @@
 News App built using React Native .
 
 ### Preview : 
-
+![main](https://user-images.githubusercontent.com/53977614/82863425-c714b300-9f3f-11ea-893d-aec0ebf49cf1.gif)
 <br>
 
 GIF recorded using <a href = 'https://github.com/phw/peek'>Peek</a>
@@ -33,13 +33,22 @@ Issues and pull requests are always appreciated .
 </ul>
 <br>
 
+### Download link :
+<a href = 'https://expo.io/artifacts/1f6ef0ad-d676-47d8-9a9c-04f134cd8cb8'>Android</a>
+
+<br>
+
 ### API Used : 
 <a href = 'https://newsapi.org/'>Api</a><br>
 Allowing Only 500 calls/day .
 <br>
+<br>
 
+### Dependencies Used : 
 
-### Download link : 
+<a href = 'https://github.com/callstack/react-native-paper'>react-native-paper</a></li><br>
+<a href = 'https://github.com/teamairship/react-native-public-ip'>react-native-public-ip</a></li><br>
+<a href = 'https://github.com/archriss/react-native-snap-carousel'>react-native-snap-carousel</a></li><br>
 
 <br>
 
