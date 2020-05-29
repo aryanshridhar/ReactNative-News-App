@@ -1,5 +1,6 @@
 # News-App
-News App built using React Native .
+News App built using React Native<br>
+#### Version : 1.0.0
 
 ### Preview : 
 ![main](https://user-images.githubusercontent.com/53977614/82863425-c714b300-9f3f-11ea-893d-aec0ebf49cf1.gif)
@@ -47,6 +48,16 @@ Allowing Only 500 calls/day .
 <a href = 'https://github.com/teamairship/react-native-public-ip'>react-native-public-ip</a></li><br>
 <a href = 'https://github.com/archriss/react-native-snap-carousel'>react-native-snap-carousel</a></li><br>
 
+<br/>
+
+### Version 1.0.1
+
+<ul>
+  <li>Feature to view News in other Nations as well.</li>
+  <li>Better Responsiveness</li>
+</ul>
+
+<br/>
 
 ### LICENSE
 
